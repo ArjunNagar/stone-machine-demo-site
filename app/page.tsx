@@ -137,8 +137,8 @@ export default function HomePage() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Have a Project in Mind?</h2>
           <p className="max-w-2xl mx-auto mb-8 text-gray-300">
-            Let's talk about how Radhika Machineries can help you achieve your
-            production goals. Get in touch with our experts today.
+            Let&apos;s talk about how Radhika Machineries can help you achieve
+            your production goals. Get in touch with our experts today.
           </p>
           <div className="max-w-xl mx-auto">
             <form className="grid grid-cols-1 md:grid-cols-2 gap-4">

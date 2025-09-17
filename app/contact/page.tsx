@@ -19,7 +19,7 @@ export default function ContactPage() {
             Get In Touch
           </h1>
           <p className="mt-4 text-lg text-gray-600">
-            We're here to help. Contact us for quotes, support, or any
+            We&apos;re here to help. Contact us for quotes, support, or any
             inquiries.
           </p>
         </motion.div>
