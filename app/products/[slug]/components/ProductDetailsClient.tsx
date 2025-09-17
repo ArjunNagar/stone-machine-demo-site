@@ -42,7 +42,6 @@ export default function ProductDetailsClient({
   ];
 
   const renderContent = () => {
-    // ... (The renderContent function remains exactly the same as before)
     switch (activeTab) {
       case "description":
         return (
@@ -53,7 +52,8 @@ export default function ProductDetailsClient({
           <ul className="space-y-3">
             {product.keyFeatures.map((feature, index) => (
               <li key={index} className="flex items-start">
-                <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-1 flex-shrink-0" />
+                {/* ✨ Updated icon color for consistency */}
+                <CheckCircle className="w-5 h-5 text-brand-green-light mr-3 mt-1 flex-shrink-0" />
                 <span>{feature}</span>
               </li>
             ))}
@@ -98,20 +98,21 @@ export default function ProductDetailsClient({
 
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left Side: Image */}
-        <div className="relative w-full h-96 lg:h-auto rounded-lg overflow-hidden shadow-xl">
+        <div className="relative w-full h-96 lg:h-[500px] rounded-lg overflow-hidden shadow-xl">
           <Image
             src={product.image}
             alt={product.name}
             fill
-            className="object-contain bg-gray-100"
+            className="object-contain bg-gray-100 p-4"
           />
         </div>
 
         {/* Right Side: Details */}
         <div>
-          <p className="text-sm text-brand-yellow font-semibold mb-2">
+          {/* ✨ Updated category text color */}
+          <p className="text-sm text-brand-green-dark font-semibold mb-2">
             {product.category}
           </p>
           <h1 className="text-4xl font-bold text-dark-gray mb-4">
@@ -120,9 +121,10 @@ export default function ProductDetailsClient({
           <p className="text-lg text-gray-600 mb-8">
             {product.shortDescription}
           </p>
+          {/* ✨ Updated button styles */}
           <Link
             href="/contact"
-            className="bg-brand-yellow text-dark-gray font-bold py-3 px-8 rounded-full hover:bg-yellow-400 transition-colors"
+            className="bg-brand-green-dark text-white font-bold py-3 px-8 rounded-full hover:bg-brand-green-light transition-colors duration-300"
           >
             Request a Quote
           </Link>
@@ -137,9 +139,10 @@ export default function ProductDetailsClient({
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
+                // ✨ Updated tab active and hover styles
                 className={`whitespace-nowrap flex items-center py-4 px-1 border-b-2 font-medium text-sm ${
                   activeTab === tab.id
-                    ? "border-brand-yellow text-brand-yellow"
+                    ? "border-brand-green-dark text-brand-green-dark"
                     : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
                 }`}
               >

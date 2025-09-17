@@ -5,7 +5,7 @@ import { Facebook, Twitter, Linkedin } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-dark-gray text-white">
+    <footer className="bg-gradient-to-br from-brand-green-dark to-brand-green-deeper text-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -104,12 +104,11 @@ const Footer = () => {
               Contact Info
             </h4>
             <p className="text-gray-400">
-              123 Industrial Area, Jodhpur, Rajasthan, India
+              Plot No. 06, Khasra No. 155/1, Ram Nagar, Industrial Area,
+              Sangriya, Jodhpur, Rajasthan 342008
             </p>
-            <p className="text-gray-400 mt-2">
-              Email: contact@radhikamachineries.com
-            </p>
-            <p className="text-gray-400 mt-2">Phone: +91 12345 67890</p>
+            <p className="text-gray-400 mt-2">Email: rmt.jodhpur@gmail.com</p>
+            <p className="text-gray-400 mt-2">Phone: +91 9983813366</p>
           </div>
         </div>
         <div className="mt-8 border-t border-gray-700 pt-6 text-center text-gray-500">

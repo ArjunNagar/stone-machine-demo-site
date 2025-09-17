@@ -15,7 +15,6 @@ type Product = {
   category: string;
   image: string;
   shortDescription: string;
-  // Add other fields if you need them inside the card
 };
 
 // 2. Define the type for the component's props
@@ -28,7 +27,8 @@ type ProductCardProps = {
 const ProductCard = ({ product, index }: ProductCardProps) => {
   return (
     <motion.div
-      className="bg-white rounded-xl shadow-lg overflow-hidden group flex flex-col"
+      // ✨ Added border hover effect
+      className="bg-white rounded-xl shadow-lg overflow-hidden group flex flex-col border-b-4 border-transparent hover:border-brand-green-light transition-colors duration-300"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -38,21 +38,25 @@ const ProductCard = ({ product, index }: ProductCardProps) => {
         <Image
           src={product.image}
           alt={product.name}
-          fill // <-- Updated prop
-          className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-110" // <-- Updated prop
+          fill
+          className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
         />
       </div>
       <div className="p-6 flex flex-col flex-grow">
-        <p className="text-sm text-gray-500 mb-1">{product.category}</p>
+        {/* ✨ Updated category text color */}
+        <p className="text-sm text-brand-green-dark font-medium mb-1">
+          {product.category}
+        </p>
         <h3 className="text-xl font-bold text-dark-gray mb-3">
           {product.name}
         </h3>
         <p className="text-gray-600 mb-4 flex-grow">
           {product.shortDescription}
         </p>
+        {/* ✨ Updated Link to be a green button */}
         <Link
           href={`/products/${product.slug}`}
-          className="mt-auto inline-block text-center bg-dark-gray text-white font-semibold py-2 px-4 rounded-lg hover:bg-medium-gray transition-colors duration-300"
+          className="mt-auto inline-block text-center bg-brand-green-dark text-white font-semibold py-2 px-4 rounded-lg hover:bg-brand-green-light transition-colors duration-300"
         >
           View Details
         </Link>
@@ -70,7 +74,8 @@ export default function ProductsPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <h1 className="text-4xl font-extrabold text-center text-dark-gray mb-4">
+          {/* ✨ Updated title color */}
+          <h1 className="text-4xl font-extrabold text-center text-brand-green-dark mb-4">
             Our Machinery
           </h1>
           <p className="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12">

@@ -1,12 +1,15 @@
 /* app/globals.css */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
-
 
 @theme {
   --font-sans: 'Poppins', sans-serif;
 
-  --color-brand-yellow: #FFC700;
+  /* ✨ NEW Green Theme ✨ */
+  --color-brand-green-light: #2ECC71; /* Bright, modern green for accents and links */
+  --color-brand-green-dark: #1D5E48; /* Deep, professional green for primary buttons and text */
+  --color-brand-green-deeper: #164A3A;
   --color-dark-gray: #1A1A1A;
   --color-medium-gray: #2C2C2C;
   --color-light-gray: #F5F5F5;

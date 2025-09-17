@@ -1,4 +1,4 @@
-// app/contact/page.js
+// app/contact/page.tsx
 
 "use client";
 
@@ -15,7 +15,8 @@ export default function ContactPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-4xl font-extrabold text-dark-gray">
+          {/* ✨ Updated title color */}
+          <h1 className="text-4xl font-extrabold text-brand-green-dark">
             Get In Touch
           </h1>
           <p className="mt-4 text-lg text-gray-600">
@@ -32,37 +33,41 @@ export default function ContactPage() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-2xl font-bold mb-6">Send us a Message</h2>
+            <h2 className="text-2xl font-bold mb-6 text-dark-gray">
+              Send us a Message
+            </h2>
             <form>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <input
                   type="text"
                   placeholder="Full Name"
-                  className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-yellow"
+                  // ✨ Updated focus ring color
+                  className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-green-light"
                 />
                 <input
                   type="email"
                   placeholder="Email Address"
-                  className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-yellow"
+                  className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-green-light"
                 />
               </div>
               <div className="mb-6">
                 <input
                   type="text"
                   placeholder="Subject"
-                  className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-yellow"
+                  className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-green-light"
                 />
               </div>
               <div className="mb-6">
                 <textarea
                   placeholder="Your Message"
                   rows={5}
-                  className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-yellow"
+                  className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-green-light"
                 ></textarea>
               </div>
+              {/* ✨ Updated button color */}
               <button
                 type="submit"
-                className="w-full bg-brand-yellow text-dark-gray font-bold py-3 px-6 rounded-md hover:bg-yellow-400 transition-colors"
+                className="w-full bg-brand-green-dark text-white font-bold py-3 px-6 rounded-md hover:bg-brand-green-light transition-colors"
               >
                 Send Message
               </button>
@@ -76,27 +81,34 @@ export default function ContactPage() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="bg-white p-6 rounded-lg shadow-lg flex items-start space-x-4">
-              <MapPin className="w-8 h-8 text-brand-yellow mt-1" />
+            {/* ✨ Updated cards with green theme and new info */}
+            <div className="bg-white p-6 rounded-lg shadow-lg flex items-start space-x-4 border-t-4 border-brand-green-light">
+              <MapPin className="w-10 h-10 text-brand-green-dark mt-1 flex-shrink-0" />
               <div>
                 <h3 className="text-lg font-semibold">Our Address</h3>
                 <p className="text-gray-600">
-                  123 Industrial Area, Jodhpur, Rajasthan, India
+                  <span className="font-bold">Unit-1:</span> Plot No. 06, Ram
+                  Nagar, Sangriya, Jodhpur, Rajasthan 342008
+                </p>
+                <p className="text-gray-600 mt-2">
+                  <span className="font-bold">Unit-2:</span> J-65, RIICO, 1st
+                  Phase, Sangriya, Jodhpur, Rajasthan 342008
                 </p>
               </div>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-lg flex items-start space-x-4">
-              <Mail className="w-8 h-8 text-brand-yellow mt-1" />
+            <div className="bg-white p-6 rounded-lg shadow-lg flex items-start space-x-4 border-t-4 border-brand-green-light">
+              <Mail className="w-8 h-8 text-brand-green-dark mt-1 flex-shrink-0" />
               <div>
                 <h3 className="text-lg font-semibold">Email Us</h3>
-                <p className="text-gray-600">contact@radhikamachineries.com</p>
+                <p className="text-gray-600">rmt.jodhpur@gmail.com</p>
               </div>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-lg flex items-start space-x-4">
-              <Phone className="w-8 h-8 text-brand-yellow mt-1" />
+            <div className="bg-white p-6 rounded-lg shadow-lg flex items-start space-x-4 border-t-4 border-brand-green-light">
+              <Phone className="w-8 h-8 text-brand-green-dark mt-1 flex-shrink-0" />
               <div>
                 <h3 className="text-lg font-semibold">Call Us</h3>
-                <p className="text-gray-600">+91 12345 67890</p>
+                <p className="text-gray-600">+91 9983813366</p>
+                <p className="text-gray-600">+91 9950329353</p>
               </div>
             </div>
           </motion.div>
