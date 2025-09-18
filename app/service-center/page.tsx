@@ -39,8 +39,8 @@ export default function ServiceCenterPage() {
       <h2>Request Service</h2>
       <p>
         Need assistance? Our team of expert technicians is ready to help. Please
-        contact us with your machine's model number and a description of your
-        issue for the fastest possible response.
+        contact us with your machine&apos;s model number and a description of
+        your issue for the fastest possible response.
       </p>
       <div className="mt-6">
         <Link

@@ -39,9 +39,9 @@ export default function TermsAndConditionsPage() {
 
       <h2>5. Governing Law</h2>
       <p>
-        Any claim relating to Radhika Machineries' website shall be governed by
-        the laws of the State of Rajasthan, India without regard to its conflict
-        of law provisions.
+        Any claim relating to Radhika Machineries&apos; website shall be
+        governed by the laws of the State of Rajasthan, India without regard to
+        its conflict of law provisions.
       </p>
     </InfoPageLayout>
   );

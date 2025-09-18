@@ -10,9 +10,10 @@ export default function PrivacyPolicyPage() {
 
       <h2>1. Introduction</h2>
       <p>
-        Radhika Machineries ("we," "our," or "us") is committed to protecting
-        your privacy. This Privacy Policy explains how we collect, use,
-        disclose, and safeguard your information when you visit our website.
+        Radhika Machineries (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;)
+        is committed to protecting your privacy. This Privacy Policy explains
+        how we collect, use, disclose, and safeguard your information when you
+        visit our website.
       </p>
 
       <h2>2. Information We Collect</h2>
