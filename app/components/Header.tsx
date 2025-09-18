@@ -57,35 +57,12 @@ const Header = () => {
             >
               About Us
             </Link>
-            <div
-              className="relative"
-              // onMouseEnter={() => setIsProductsOpen(true)}
-              // onMouseLeave={() => setIsProductsOpen(false)}
+            <Link
+              href="/products"
+              className="text-gray-200 hover:text-white transition-colors duration-300"
             >
-              <Link href="/products">
-                <button className="flex items-center text-gray-200 hover:text-white transition-colors duration-300">
-                  <span>Products</span>
-                  {/* <ChevronDown
-                    className={`w-4 h-4 ml-1 transition-transform duration-300 ${
-                      isProductsOpen ? "rotate-180" : ""
-                    }`}
-                  /> */}
-                </button>
-              </Link>
-              {/* {isProductsOpen && (
-                <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg py-2 text-dark-gray">
-                  {productCategories.map((category) => (
-                    <Link
-                      key={category.name}
-                      href={category.href}
-                      className="block px-4 py-2 text-sm hover:bg-light-gray hover:text-brand-green-dark"
-                    >
-                      {category.name}
-                    </Link>
-                  ))}
-                </div>
-              )} */}
-            </div>
+              Products
+            </Link>
             <Link
               href="/contact"
               className="text-gray-200 hover:text-white transition-colors duration-300"
