@@ -2,10 +2,11 @@
 
 import { products } from "../../../data/products";
 import { notFound } from "next/navigation";
-import ProductDetailsClient from "./components/ProductDetailsClient"; // Import the new client component
+import ProductDetailsClient from "./components/ProductDetailsClient";
 
 // Define the type for the page's props
 type ProductDetailPageProps = {
+  // This type correctly describes the resolved shape of params
   params: {
     slug: string;
   };
@@ -18,9 +19,12 @@ export async function generateStaticParams() {
   }));
 }
 
-// This is now a Server Component
-export default function ProductDetailPage({ params }: ProductDetailPageProps) {
-  const { slug } = params;
+// ✨ FIX: Changed to an 'async' function
+export default async function ProductDetailPage({
+  params,
+}: ProductDetailPageProps) {
+  // ✨ FIX: Added 'await' before accessing params
+  const { slug } = await params;
   const product = products.find((p) => p.slug === slug);
 
   // If no product is found, show a 404 page

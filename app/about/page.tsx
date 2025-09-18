@@ -32,7 +32,7 @@ export default function AboutUsPage() {
     <div>
       {/* Hero Section */}
       <motion.section
-        className="relative h-[50vh] w-full flex items-center justify-center text-white"
+        className="relative h-[60vh] w-full flex items-center justify-center text-white"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}

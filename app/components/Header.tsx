@@ -3,6 +3,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image"; // ✨ Import the Image component
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 
@@ -23,10 +24,21 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center space-x-2">
-              <span className="text-2xl font-bold text-white">
-                Radhika{" "}
-                <span className="text-brand-green-light">Machineries</span>
+            {/* ✨ Logo and Text are now side-by-side */}
+            <Link href="/" className="flex items-center gap-3">
+              {/* ✨ Circular container to make the logo visible */}
+              <div className="p-1">
+                <Image
+                  src="/images/radhika-logo.png"
+                  alt="Radhika Machineries Logo"
+                  width={55}
+                  height={55}
+                  priority
+                  className="rounded-full"
+                />
+              </div>
+              <span className="text-xl font-bold text-white hidden sm:block">
+                Radhika Machine Tools
               </span>
             </Link>
           </div>
@@ -47,21 +59,20 @@ const Header = () => {
             </Link>
             <div
               className="relative"
-              onMouseEnter={() => setIsProductsOpen(true)}
-              onMouseLeave={() => setIsProductsOpen(false)}
+              // onMouseEnter={() => setIsProductsOpen(true)}
+              // onMouseLeave={() => setIsProductsOpen(false)}
             >
-              {/* ✨ Link added for navigation on click */}
               <Link href="/products">
-                <button className="flex items-center text-gray-200 hover:text-white transition-colors duration-300 cursor-pointer">
+                <button className="flex items-center text-gray-200 hover:text-white transition-colors duration-300">
                   <span>Products</span>
-                  <ChevronDown
+                  {/* <ChevronDown
                     className={`w-4 h-4 ml-1 transition-transform duration-300 ${
                       isProductsOpen ? "rotate-180" : ""
                     }`}
-                  />
+                  /> */}
                 </button>
               </Link>
-              {isProductsOpen && (
+              {/* {isProductsOpen && (
                 <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg py-2 text-dark-gray">
                   {productCategories.map((category) => (
                     <Link
@@ -73,7 +84,7 @@ const Header = () => {
                     </Link>
                   ))}
                 </div>
-              )}
+              )} */}
             </div>
             <Link
               href="/contact"
@@ -112,7 +123,6 @@ const Header = () => {
             About Us
           </Link>
 
-          {/* ✨ Updated Mobile Products link for better UX */}
           <div className="px-4 py-2 flex justify-between items-center">
             <Link href="/products" className="hover:text-brand-green-dark">
               Products
