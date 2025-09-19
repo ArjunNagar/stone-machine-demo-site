@@ -4,25 +4,30 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Phone, MapPin, CheckCircle, X } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  CheckCircle,
+  X,
+  AlertTriangle,
+} from "lucide-react";
+import { sendEmail } from "../actions"; // ✨ Import the server action
 
 export default function ContactPage() {
-  // State for form fields
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
     message: "",
   });
-
-  // State for validation errors
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
-
-  // State for submission status and success toast
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showSuccessToast, setShowSuccessToast] = useState(false);
+  const [toast, setToast] = useState<{
+    type: "success" | "error";
+    message: string;
+  } | null>(null);
 
-  // Handle input changes
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -30,7 +35,6 @@ export default function ContactPage() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Validate the form
   const validateForm = () => {
     const newErrors: { [key: string]: string } = {};
     if (!formData.name) newErrors.name = "Full Name is required.";
@@ -44,41 +48,54 @@ export default function ContactPage() {
     return newErrors;
   };
 
-  // Handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const validationErrors = validateForm();
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length === 0) {
       setIsSubmitting(true);
-      // Simulate API call for demo purposes
-      setTimeout(() => {
-        setIsSubmitting(false);
-        setShowSuccessToast(true);
-        // Reset form
+      setToast(null);
+
+      // ✨ Call the server action instead of simulating
+      const result = await sendEmail(formData);
+
+      setIsSubmitting(false);
+
+      if (result.success) {
+        setToast({ type: "success", message: "Message sent successfully!" });
         setFormData({ name: "", email: "", subject: "", message: "" });
-        // Hide toast after 4 seconds
-        setTimeout(() => setShowSuccessToast(false), 4000);
-      }, 1500);
+      } else {
+        setToast({
+          type: "error",
+          message: result.error || "An unexpected error occurred.",
+        });
+      }
+
+      // Hide toast after 4 seconds
+      setTimeout(() => setToast(null), 4000);
     }
   };
 
   return (
     <div className="relative overflow-hidden">
-      {/* Success Toast */}
+      {/* Universal Toast for Success or Error */}
       <AnimatePresence>
-        {showSuccessToast && (
+        {toast && (
           <motion.div
             initial={{ opacity: 0, y: -50, x: "-50%" }}
-            animate={{ opacity: 1, y: 62, x: "-50%" }}
+            animate={{ opacity: 1, y: 100, x: "-50%" }}
             exit={{ opacity: 0, y: -50, x: "-50%" }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed top-0 left-1/2 z-50 flex items-center gap-3 bg-brand-green-dark text-white p-4 rounded-lg shadow-2xl"
+            className={`fixed top-0 left-1/2 z-50 flex items-center gap-3 p-4 rounded-lg shadow-2xl ${
+              toast.type === "success"
+                ? "bg-brand-green-dark text-white"
+                : "bg-red-600 text-white"
+            }`}
           >
-            <CheckCircle />
-            <span>Message sent successfully!</span>
-            <button onClick={() => setShowSuccessToast(false)} className="ml-4">
+            {toast.type === "success" ? <CheckCircle /> : <AlertTriangle />}
+            <span>{toast.message}</span>
+            <button onClick={() => setToast(null)} className="ml-4">
               <X size={18} />
             </button>
           </motion.div>
